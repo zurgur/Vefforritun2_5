@@ -11,11 +11,11 @@ export default class Navigation extends Component {
       <nav className="navigation">
         <h1>Próf töflur</h1>
         <nav className="links">
-          <a href= ''>Félagsvísindasvið </a>
-          <a href= ''>Heilbrigðisvísindasvið </a>
-          <a href= ''>Hugvísindasvið </a>
-          <a href= ''>Menntavísindasvið </a>
-          <a href= ''>Verkfæði- og Nátturuvísindasvið </a>
+          <a href= '/felagsvisindasvid'>Félagsvísindasvið </a>
+          <a href= '/heilbrigdisvisindasvid'>Heilbrigðisvísindasvið </a>
+          <a href= '/hugvisindasvid'>Hugvísindasvið </a>
+          <a href= '/menntavisindasvid'>Menntavísindasvið </a>
+          <a href= '/verkfraedi-og-natturuvisindasvid'>Verkfæði- og Nátturuvísindasvið </a>
         </nav>
       </nav>
     );
