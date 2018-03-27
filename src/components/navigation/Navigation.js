@@ -8,24 +8,35 @@ const baseurl = process.env.REACT_APP_SERVICE_URL;
 
 export default class Navigation extends Component {
   
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      slug: '',
+    }
+  }
+
+  componentDidMount() {
     fetch(baseurl)
     .then(results => {
       return results.json();
     }).then(data => {
-      data.schools.map((sug) => {
-        console.info(sug.slug);
+      let slug = data.schools.map((sug) => {
+        return(
+          <a key={sug.name} href={sug.slug}>{sug.name}</a>
+        )
       });
+      this.setState({slug: slug});
     });
+  }
+
+  render() {
+    
     return (
       <nav className="navigation">
         <h1>Próf töflur</h1>
         <nav className="links">
-          <a href= '/felagsvisindasvid'>Félagsvísindasvið </a>
-          <a href= '/heilbrigdisvisindasvid'>Heilbrigðisvísindasvið </a>
-          <a href= '/hugvisindasvid'>Hugvísindasvið </a>
-          <a href= '/menntavisindasvid'>Menntavísindasvið </a>
-          <a href= '/verkfraedi-og-natturuvisindasvid'>Verkfæði- og Nátturuvísindasvið </a>
+          
+          {this.state.slug}
         </nav>
       </nav>
     );
