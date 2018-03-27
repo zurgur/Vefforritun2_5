@@ -4,9 +4,19 @@ import PropTypes from 'prop-types';
 import './Navigation.css';
 
 /* hér ætti að sækja gögn frá vefþjónustu fyrir valmynd */
+const baseurl = process.env.REACT_APP_SERVICE_URL;
 
 export default class Navigation extends Component {
+  
   render() {
+    fetch(baseurl)
+    .then(results => {
+      return results.json();
+    }).then(data => {
+      data.schools.map((sug) => {
+        console.info(sug.slug);
+      });
+    });
     return (
       <nav className="navigation">
         <h1>Próf töflur</h1>
