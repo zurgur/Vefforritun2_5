@@ -32,7 +32,7 @@ export default class Navigation extends Component {
       let slug = data.schools.map((sug) => {
         let s = sug.slug;
         return(
-          <a key={sug.name} ><NavLink to={s}>{sug.name}</NavLink></a>
+          <a key={sug.name} ><NavLink to={'school/' + s}>{sug.name}</NavLink></a>
         )
       });
       this.setState({slug: slug});
