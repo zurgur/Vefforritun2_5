@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import './Navigation.css';
 
-/* hér ætti að sækja gögn frá vefþjónustu fyrir valmynd */
 const baseurl = process.env.REACT_APP_SERVICE_URL;
 
 export default class Navigation extends Component {
@@ -14,15 +13,24 @@ export default class Navigation extends Component {
       slug: '',
     }
   }
+  state = {data: null, loading: true, error: false};
 
+  handleClick = (id) => {
+    return e => {
+      this.setState({data: id, loading: true});
+      console.log(id);
+    }
+  }
+  
   componentDidMount() {
     fetch(baseurl)
     .then(results => {
       return results.json();
     }).then(data => {
       let slug = data.schools.map((sug) => {
+        let s = sug.slug;
         return(
-          <a key={sug.name} href={sug.slug}>{sug.name}</a>
+          <a key={sug.name} onClick={this.handleClick({s})}>{sug.name}</a>
         )
       });
       this.setState({slug: slug});
