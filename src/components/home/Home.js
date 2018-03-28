@@ -22,9 +22,11 @@ export default class Home extends Component {
       return results.json();
     }).then(data => {
       let stats = Object.entries(data.stats).map((stat) => {
-        console.info(stat);
         return(
-          <li key={stat} href={stat}>{Object.values(stat)}</li>
+          <tr key ={stat}>
+            <td>{stat[0]}</td>
+            <td>{stat[1]}</td>
+          </tr>
         )
       });
       this.setState({stats: stats});
@@ -36,7 +38,11 @@ export default class Home extends Component {
     return (
       <div className="home">
         <h1>Tölfræði</h1>
-        {this.state.stats}
+        <table>
+          <tbody>
+            {this.state.stats}
+          </tbody>
+        </table>
       </div>
     );
   }
