@@ -9,10 +9,13 @@ import './School.css';
  * - Opna/loka deildum
  */
 
+
 export default class School extends Component {
 
   render() {
-
+    const { match } = this.props;
+    const about = match.params.about;
+    console.info(about);
     return (
       <section className="school">
         <p>útfæra</p>
