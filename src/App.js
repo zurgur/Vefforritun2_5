@@ -23,6 +23,7 @@ class App extends Component {
           <Route path="/:about" component={School} />
           <Route component={NotFound} />
         </Switch>
+        <p><NavLink to="/">Heim</NavLink></p>
     </main>
   );
   }

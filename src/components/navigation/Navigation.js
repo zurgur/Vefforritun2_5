@@ -15,14 +15,6 @@ export default class Navigation extends Component {
       slug: '',
     }
   }
-  state = {data: null, loading: true, error: false};
-
-  /*handleClick = (id) => {
-    return e => {
-      this.setState({data: id, loading: true});
-      console.log(id);
-    }
-  }*/
   
   componentDidMount() {
     fetch(baseurl)
