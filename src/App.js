@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     const {data, loading, error} = this.props;
     console.info('hal', data);
-    if(data){
+    /*if(data){
       return (
         <main className="app">
         <Navigation />
@@ -30,7 +30,17 @@ class App extends Component {
         <p><NavLink to="/">Heim</NavLink></p>
       </main>
     );
-  }
+    }*/
+    return(
+      <main className="app">
+        <Navigation />
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/about" component={School} />
+          <Route component={NotFound} />
+        </Switch>
+    </main>
+  );
   }
 }
 

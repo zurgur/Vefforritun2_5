@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+
 // import PropTypes from 'prop-types';
 
 import './Navigation.css';
@@ -15,12 +17,12 @@ export default class Navigation extends Component {
   }
   state = {data: null, loading: true, error: false};
 
-  handleClick = (id) => {
+  /*handleClick = (id) => {
     return e => {
       this.setState({data: id, loading: true});
       console.log(id);
     }
-  }
+  }*/
   
   componentDidMount() {
     fetch(baseurl)
@@ -30,7 +32,7 @@ export default class Navigation extends Component {
       let slug = data.schools.map((sug) => {
         let s = sug.slug;
         return(
-          <a key={sug.name} onClick={this.handleClick({s})}>{sug.name}</a>
+          <a key={sug.name} ><NavLink to={s}>{sug.name}</NavLink></a>
         )
       });
       this.setState({slug: slug});
