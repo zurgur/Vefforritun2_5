@@ -14,13 +14,14 @@ class App extends Component {
   
   render() {
     const {data, loading, error} = this.props;
+    const { match } = this.props;
     
     return(
       <main className="app">
         <Navigation />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/:about" component={School} />
+          <Route path="/:about" component={School}  />
           <Route component={NotFound} />
         </Switch>
         <p><NavLink to="/">Heim</NavLink></p>
