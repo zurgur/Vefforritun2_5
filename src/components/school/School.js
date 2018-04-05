@@ -33,10 +33,10 @@ export default class School extends Component {
     visable: null,
   }
 
-  onHeaderClick = (noteId) => {
+  onHeaderClick = (heading) => {
     return (e) => {
-      const visibleNote = this.state.visibleNote === noteId ? null : noteId;
-      this.setState({ visibleNote });
+      const visible = this.state.visible === heading ? null : heading;
+      this.setState({ visible });
     }
   }
   

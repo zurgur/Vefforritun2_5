@@ -11,9 +11,8 @@ import './Department.css';
 export default class Exams extends Component {
   static propTypes = {
     title: PropTypes.string,
-    tests: PropTypes.string,
+    tests: PropTypes.array,
     visible: PropTypes.bool,
-    datetime: PropTypes.string,
     onHeaderClick: PropTypes.func,
   }
 
@@ -27,7 +26,27 @@ export default class Exams extends Component {
 
     return (
       <section className="department">
-        <p>útfæra</p>
+        <p onClick={onHeaderClick} className="note__header">{title}</p>
+        {visible && (
+          <table>
+            <tr>
+              <th>Auðkenni</th>
+              <th>Námskeið</th>
+              <th>Fjöldi</th>
+              <th>Dagsetning</th>
+            </tr>
+            <tbody>
+            {(tests).map((test) => (
+              <tr key={test.course}>
+                <td>{test.course}</td>
+                <td>{test.name}</td>
+                <td>{test.students}</td>
+                <td>{test.date}</td>
+              </tr>              
+            ))}
+            </tbody>
+          </table>
+        )}
       </section>
     );
   }

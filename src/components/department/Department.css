@@ -1,1 +1,17 @@
-/* útfæra */
+.th{
+    font-weight: bold;
+    margin: auto;
+}
+.section{
+    max-width: auto;
+}
+.table{
+    width: 100%;
+    margin: auto;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.Exams{
+    width:100%;
+}
