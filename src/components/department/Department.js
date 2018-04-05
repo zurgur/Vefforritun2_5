@@ -23,18 +23,20 @@ export default class Exams extends Component {
 
   render() {
     const { onHeaderClick, title, visible, tests } = this.props;
-
+    const plus = visible ? '- ' : '+ ';
     return (
       <section className="department">
-        <p onClick={onHeaderClick} className="note__header">{title}</p>
+        <p onClick={onHeaderClick} className="note__header">{plus}{title}</p>
         {visible && (
           <table>
-            <tr>
-              <th>Auðkenni</th>
-              <th>Námskeið</th>
-              <th>Fjöldi</th>
-              <th>Dagsetning</th>
-            </tr>
+              <thead>
+                <tr>
+                  <th>Auðkenni</th>
+                  <th>Námskeið</th>
+                  <th>Fjöldi</th>
+                  <th>Dagsetning</th>
+                </tr>
+              </thead>
             <tbody>
             {(tests).map((test) => (
               <tr key={test.course}>
@@ -47,6 +49,7 @@ export default class Exams extends Component {
             </tbody>
           </table>
         )}
+        <hr/>
       </section>
     );
   }

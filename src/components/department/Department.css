@@ -1,11 +1,11 @@
-.th{
+th{
     font-weight: bold;
     margin: auto;
 }
 .section{
     max-width: auto;
 }
-.table{
+table{
     width: 100%;
     margin: auto;
 }
@@ -14,4 +14,12 @@ tr:nth-child(even) {
 }
 .Exams{
     width:100%;
+}
+p{
+    border-bottom: inherit;
+    border-width: 2px;
+    padding: 20px;
+}
+li{
+    list-style: none;
 }

@@ -18,7 +18,10 @@ html, body{
 }
 h1 {
    margin: auto; 
+   padding: 10px;
+   font-size: 35px;
+   text-decoration: underline;
 }
 p {
-    margin: auto
+    margin: auto;
 }
