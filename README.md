@@ -1,3 +1,5 @@
+Heroku link: https://vef2-5.herokuapp.com/felagsvisindasvid
+
 # Verkefni 5
 
 Útfæra skal framenda ofan á próftöflu gögn úr verkefni 4. Gefin er vefþjónusta úr [sýnilausn á verkefni 4](https://github.com/vefforritun/vef2-2018-v4-synilausn) sem hægt er að nota:
