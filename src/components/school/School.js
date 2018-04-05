@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import Helmet from 'react-helmet';
+import { NavLink } from 'react-router-dom'
+
 
 import './School.css';
 import Department from '../department'
@@ -34,7 +35,6 @@ export default class School extends Component {
   
   componentDidMount() {
     this.setState({ loading: true});
-
     const { match } = this.props;
     fetch(baseurl + match.params.about)
     .then(results => {
@@ -46,35 +46,39 @@ export default class School extends Component {
   }
   componentWillReceiveProps() {
     this.setState({ loading: true});
-
     const { match } = this.props;
     fetch(baseurl + match.params.about)
     .then(results => {
       return results.json();
     }).then(data => {
-      this.setState({data: data});
+      this.setState({data: data, loading: false});
     });
   }
 
   render() {
     
-    const { match, data } = this.props;
-    const palce = match.params.about;
     if(this.state.loading){
       return (
-        <h1>loading ...x</h1>
+        <main className="app">
+          <Helmet title="Sækir gögn" />
+          <h1>Sækir gögn ... </h1>
+        </main>
       )
     }
     if(this.state.error){
       return(
         <main className="app">
+          <Helmet title="Villa við að sækja gögn" />
           <h1>Villa kom upp ... </h1>
         </main>
       );
     }
+    const heding = this.state.data.school.heading;
+
     return (
       <section className="school">
-        <h1> {palce} </h1>
+      <Helmet title={ `${heding} - próftöflur`} />
+        <h1> {heding} </h1>
         {(this.state.data.school).departments.map((st) => (
           <li key={st.heading}> 
             <Department
@@ -85,6 +89,7 @@ export default class School extends Component {
             />
         </li>)
       )}
+      <p><NavLink to="/">Heim</NavLink></p>
       </section>
     );
   }

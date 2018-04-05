@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Route, Link, Switch, NavLink } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import './App.css';
 
@@ -8,7 +8,6 @@ import Home from './components/home';
 import School from './components/school';
 import Navigation from './components/navigation';
 import NotFound from './components/not-found';
-const baseurl = process.env.REACT_APP_SERVICE_URL;
 
 
 class App extends Component {
@@ -37,31 +36,31 @@ class App extends Component {
   
   
   render() {
-    const {data, loading, error} = this.props;
-    const { match } = this.props;
-    if(this.state.loading){
-      return(
+   if(this.state.loading){
+      return (
         <main className="app">
-          <h1>sækir gögn ... </h1>
+          <Helmet title="Sækir gögn" />
+          <h1>Sækir gögn ... </h1>
         </main>
-      );
+      )
     }
     if(this.state.error){
       return(
         <main className="app">
+          <Helmet title="Villa við að sækja gögn" />
           <h1>Villa kom upp ... </h1>
         </main>
       );
     }
     return(
       <main className="app">
+        <Helmet title="Próftöflur"/>
         <Navigation info={this.state.data.schools}/>
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/:about" component={School}  />
           <Route component={NotFound} />
         </Switch>
-        <p><NavLink to="/">Heim</NavLink></p>
     </main>
   );
   }
